@@ -1,0 +1,20 @@
+stages:
+  preprocessing:
+    cmd: python src/preprocessing.py data/crx.data
+    params:
+    - preprocessing.normalize_flag
+    - preprocessing.one_hot
+    - preprocessing.seed
+    - preprocessing.test_share
+  train:
+    cmd: python src/train.py
+    params:
+    - train.max_depth
+    - train.n_estimators
+    - train.seed
+  inference:
+    cmd: python src/inference.py
+  evaluate:
+    cmd: python src/evaluate.py
+    params:
+    - evaluate.beta

@@ -1,0 +1,24 @@
+schema: '2.0'
+stages:
+  preprocessing:
+    cmd: python src/preprocessing.py data/crx.data
+    params:
+      params.yaml:
+        preprocessing.normalize_flag: 'True'
+        preprocessing.one_hot: 'True'
+        preprocessing.seed: 42
+        preprocessing.test_share: 0.2
+  train:
+    cmd: python src/train.py
+    params:
+      params.yaml:
+        train.max_depth: 6
+        train.n_estimators: 300
+        train.seed: 42
+  inference:
+    cmd: python src/inference.py
+  evaluate:
+    cmd: python src/evaluate.py
+    params:
+      params.yaml:
+        evaluate.beta: 0.5

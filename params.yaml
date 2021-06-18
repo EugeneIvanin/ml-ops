@@ -1,0 +1,14 @@
+preprocessing:
+  test_share: 0.2
+  seed: 42
+  one_hot: 'True'
+  normalize_flag: 'True'
+
+train:
+  seed: 42
+  n_estimators: 300
+  max_depth: 6
+
+
+evaluate:
+  beta: 0.5
